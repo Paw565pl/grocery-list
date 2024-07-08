@@ -7,11 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "pnpm exec prettier . --write"
+    "format": "pnpm exec prettier . --write",
+    "server": "json-server --watch src/data/db.json --delay 500 -p 5000"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "json-server": "0.17.4",
     "lucide-react": "^0.402.0",
     "next": "14.2.4",
     "react": "^18",
