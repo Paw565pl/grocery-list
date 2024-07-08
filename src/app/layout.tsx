@@ -1,3 +1,4 @@
+import NavBar from "@/components/navbar";
 import Providers from "@/components/providers";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
@@ -15,7 +16,10 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <NavBar />
+          {children}
+        </Providers>
       </body>
     </html>
   );
