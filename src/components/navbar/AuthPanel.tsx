@@ -9,7 +9,7 @@ const AuthPanel = async () => {
 
   return (
     <div className="flex items-center gap-2">
-      <span>{session.user?.name}</span>
+      <span>{session.user?.nickname}</span>
       <SignOutButton />
     </div>
   );
