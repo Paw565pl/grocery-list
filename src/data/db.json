@@ -1,0 +1,343 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Fruits"
+    },
+    {
+      "id": 2,
+      "name": "Vegetables"
+    },
+    {
+      "id": 3,
+      "name": "Dairy"
+    },
+    {
+      "id": 4,
+      "name": "Meat"
+    },
+    {
+      "id": 5,
+      "name": "Deli"
+    },
+    {
+      "id": 6,
+      "name": "Snacks"
+    }
+  ],
+
+  "products": [
+    {
+      "id": 1,
+      "name": "Refined Concrete Soap",
+      "price": 799,
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "name": "Fresh Organic Apples",
+      "price": 3.99,
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "name": "Organic Avocado",
+      "price": 2.49,
+      "categoryId": 1
+    },
+    {
+      "id": 4,
+      "name": "Sweet Pineapple",
+      "price": 5.99,
+      "categoryId": 1
+    },
+    {
+      "id": 5,
+      "name": "Crisp Green Grapes",
+      "price": 4.49,
+      "categoryId": 1
+    },
+    {
+      "id": 6,
+      "name": "Red Bell Pepper",
+      "price": 1.29,
+      "categoryId": 2
+    },
+    {
+      "id": 7,
+      "name": "Fresh Spinach",
+      "price": 2.99,
+      "categoryId": 2
+    },
+    {
+      "id": 8,
+      "name": "Organic Carrots",
+      "price": 1.79,
+      "categoryId": 2
+    },
+    {
+      "id": 9,
+      "name": "Yellow Corn",
+      "price": 0.99,
+      "categoryId": 2
+    },
+    {
+      "id": 10,
+      "name": "Cheddar Cheese",
+      "price": 4.79,
+      "categoryId": 3
+    },
+    {
+      "id": 11,
+      "name": "Greek Yogurt",
+      "price": 2.49,
+      "categoryId": 3
+    },
+    {
+      "id": 12,
+      "name": "Almond Milk",
+      "price": 3.29,
+      "categoryId": 3
+    },
+    {
+      "id": 13,
+      "name": "Lean Ground Beef",
+      "price": 7.99,
+      "categoryId": 4
+    },
+    {
+      "id": 14,
+      "name": "Chicken Breast",
+      "price": 6.49,
+      "categoryId": 4
+    },
+    {
+      "id": 15,
+      "name": "Pork Tenderloin",
+      "price": 8.99,
+      "categoryId": 4
+    },
+    {
+      "id": 16,
+      "name": "Smoked Turkey",
+      "price": 5.79,
+      "categoryId": 5
+    },
+    {
+      "id": 17,
+      "name": "Salami",
+      "price": 4.29,
+      "categoryId": 5
+    },
+    {
+      "id": 18,
+      "name": "Prosciutto",
+      "price": 6.99,
+      "categoryId": 5
+    },
+    {
+      "id": 19,
+      "name": "Potato Chips",
+      "price": 2.49,
+      "categoryId": 6
+    },
+    {
+      "id": 20,
+      "name": "Trail Mix",
+      "price": 3.99,
+      "categoryId": 6
+    },
+    {
+      "id": 21,
+      "name": "Popcorn",
+      "price": 1.99,
+      "categoryId": 6
+    },
+    {
+      "id": 22,
+      "name": "Organic Strawberries",
+      "price": 4.99,
+      "categoryId": 1
+    },
+    {
+      "id": 23,
+      "name": "Ripe Mango",
+      "price": 2.79,
+      "categoryId": 1
+    },
+    {
+      "id": 24,
+      "name": "Fresh Watermelon",
+      "price": 6.49,
+      "categoryId": 1
+    },
+    {
+      "id": 25,
+      "name": "Crisp Lettuce",
+      "price": 1.49,
+      "categoryId": 2
+    },
+    {
+      "id": 26,
+      "name": "Zucchini",
+      "price": 1.99,
+      "categoryId": 2
+    },
+    {
+      "id": 27,
+      "name": "Blue Cheese",
+      "price": 5.99,
+      "categoryId": 3
+    },
+    {
+      "id": 28,
+      "name": "Coconut Milk",
+      "price": 2.79,
+      "categoryId": 3
+    },
+    {
+      "id": 29,
+      "name": "Salmon Fillet",
+      "price": 9.99,
+      "categoryId": 4
+    },
+    {
+      "id": 30,
+      "name": "Ground Turkey",
+      "price": 5.49,
+      "categoryId": 4
+    },
+    {
+      "id": 31,
+      "name": "Sliced Ham",
+      "price": 3.49,
+      "categoryId": 5
+    },
+    {
+      "id": 32,
+      "name": "Mixed Nuts",
+      "price": 4.29,
+      "categoryId": 6
+    },
+    {
+      "id": 33,
+      "name": "Organic Blueberries",
+      "price": 3.49,
+      "categoryId": 1
+    },
+    {
+      "id": 34,
+      "name": "Ripe Bananas",
+      "price": 1.99,
+      "categoryId": 1
+    },
+    {
+      "id": 35,
+      "name": "Fresh Broccoli",
+      "price": 2.29,
+      "categoryId": 2
+    },
+    {
+      "id": 36,
+      "name": "Sweet Potatoes",
+      "price": 1.79,
+      "categoryId": 2
+    },
+    {
+      "id": 37,
+      "name": "Mozzarella Cheese",
+      "price": 3.99,
+      "categoryId": 3
+    },
+    {
+      "id": 38,
+      "name": "Soy Milk",
+      "price": 2.49,
+      "categoryId": 3
+    },
+    {
+      "id": 39,
+      "name": "Lamb Chops",
+      "price": 10.99,
+      "categoryId": 4
+    },
+    {
+      "id": 40,
+      "name": "Ground Pork",
+      "price": 4.79,
+      "categoryId": 4
+    },
+    {
+      "id": 41,
+      "name": "Turkey Bacon",
+      "price": 3.99,
+      "categoryId": 5
+    },
+    {
+      "id": 42,
+      "name": "Dark Chocolate",
+      "price": 2.99,
+      "categoryId": 6
+    },
+    {
+      "id": 43,
+      "name": "Organic Raspberries",
+      "price": 4.29,
+      "categoryId": 1
+    },
+    {
+      "id": 44,
+      "name": "Fresh Lemons",
+      "price": 1.49,
+      "categoryId": 1
+    },
+    {
+      "id": 45,
+      "name": "Cauliflower",
+      "price": 2.99,
+      "categoryId": 2
+    },
+    {
+      "id": 46,
+      "name": "Green Beans",
+      "price": 1.79,
+      "categoryId": 2
+    },
+    {
+      "id": 47,
+      "name": "Swiss Cheese",
+      "price": 4.99,
+      "categoryId": 3
+    },
+    {
+      "id": 48,
+      "name": "Oat Milk",
+      "price": 2.79,
+      "categoryId": 3
+    },
+    {
+      "id": 49,
+      "name": "Ribeye Steak",
+      "price": 12.99,
+      "categoryId": 4
+    },
+    {
+      "id": 50,
+      "name": "Ground Chicken",
+      "price": 4.49,
+      "categoryId": 4
+    },
+    {
+      "id": 51,
+      "name": "Turkey Breast",
+      "price": 5.49,
+      "categoryId": 5
+    },
+    {
+      "id": 52,
+      "name": "Pretzels",
+      "price": 1.99,
+      "categoryId": 6
+    }
+  ]
+}
