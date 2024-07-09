@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "format": "pnpm exec prettier . --write",
-    "server": "json-server --watch src/data/db.json --delay 500 -p 5000"
+    "server": "json-server --watch src/data/db.json --delay 500 -p 5000",
+    "test": "vitest"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
@@ -34,19 +35,31 @@
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^5.50.1",
     "@tanstack/react-query-devtools": "^5.50.1",
+    "@testing-library/dom": "^10.3.1",
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
     "@types/ms": "^0.7.34",
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "@vitest/ui": "^2.0.1",
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.4",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jest-dom": "^5.4.0",
+    "eslint-plugin-testing-library": "^6.2.2",
+    "eslint-plugin-vitest": "^0.5.4",
+    "jsdom": "^24.1.0",
     "postcss": "^8.4.39",
     "prettier": "3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "tailwindcss": "^3.4.4",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "^2.0.1"
   },
   "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903"
 }
