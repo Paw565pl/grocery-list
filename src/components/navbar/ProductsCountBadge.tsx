@@ -4,9 +4,13 @@ import { Badge } from "@/components/ui/badge";
 import { useAppSelector } from "@/store/hooks";
 
 const ProductsCountBadge = () => {
-  const products = useAppSelector((s) => s.productsList.products);
+  const productsList = useAppSelector((s) => s.productsList);
+  const totalItemsCount = productsList.reduce(
+    (acc, item) => acc + item.quantity,
+    0,
+  );
 
-  return <Badge>{products.length}</Badge>;
+  return <Badge>{totalItemsCount}</Badge>;
 };
 
 export default ProductsCountBadge;
