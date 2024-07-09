@@ -18,7 +18,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
       <body>
         <Providers>
           <NavBar />
-          {children}
+          <main className="p-5 md:px-10 lg:px-12">{children}</main>
         </Providers>
       </body>
     </html>
