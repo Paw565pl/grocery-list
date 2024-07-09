@@ -1,10 +1,12 @@
 "use client";
 
+import store from "@/store";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ms from "ms";
 import { SessionProvider } from "next-auth/react";
 import { ReactNode, useState } from "react";
+import { Provider as ReduxProvider } from "react-redux";
 
 interface ProvidersProps {
   children: ReactNode;
@@ -26,10 +28,12 @@ const Providers = ({ children }: ProvidersProps) => {
 
   return (
     <SessionProvider>
-      <QueryClientProvider client={queryClient}>
-        {children}
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
+      <ReduxProvider store={store}>
+        <QueryClientProvider client={queryClient}>
+          {children}
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </ReduxProvider>
     </SessionProvider>
   );
 };
