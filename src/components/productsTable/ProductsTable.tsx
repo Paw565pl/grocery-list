@@ -1,5 +1,6 @@
 "use client";
 
+import DataTablePagination from "@/components/common/DataTablePagination";
 import {
   Table,
   TableBody,
@@ -17,7 +18,8 @@ import {
   getPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import DataTablePagination from "@/components/common/DataTablePagination";
+import { useMemo, useState } from "react";
+import CategoryFilter from "./CategoryFilter";
 import QuantitySelector from "./QuantitySelector";
 
 const columns: ColumnDef<Product>[] = [
@@ -32,7 +34,16 @@ const columns: ColumnDef<Product>[] = [
 ];
 
 const ProductsTable = () => {
+  const [categoryFilter, setCategoryFilter] = useState<number | null>(null);
   const { data: products, isLoading, isError } = useProducts();
+  const filteredProducts = useMemo(
+    () =>
+      !categoryFilter
+        ? products
+        : products?.filter((product) => product.categoryId === categoryFilter),
+    [categoryFilter, products],
+  );
+
   const {
     getHeaderGroups,
     getRowModel,
@@ -41,7 +52,7 @@ const ProductsTable = () => {
     nextPage,
     getCanNextPage,
   } = useReactTable({
-    data: products || [],
+    data: filteredProducts || [],
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
@@ -57,6 +68,11 @@ const ProductsTable = () => {
 
   return (
     <section className="xl:w-7/12">
+      <CategoryFilter
+        onValueChange={(value) =>
+          setCategoryFilter(value === "all" ? null : parseInt(value))
+        }
+      />
       <Table className="sm:table-fixed">
         <TableHeader className="font-bold sm:text-lg">
           {getHeaderGroups().map((headerGroup) => (
