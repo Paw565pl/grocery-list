@@ -51,6 +51,8 @@ const ProductsTable = () => {
     getCanPreviousPage,
     nextPage,
     getCanNextPage,
+    getState,
+    getPageCount,
   } = useReactTable({
     data: filteredProducts || [],
     columns,
@@ -124,6 +126,8 @@ const ProductsTable = () => {
         previousPage={previousPage}
         getCanNextPage={getCanNextPage}
         getCanPreviousPage={getCanPreviousPage}
+        getState={getState}
+        getPageCount={getPageCount}
       />
     </section>
   );
