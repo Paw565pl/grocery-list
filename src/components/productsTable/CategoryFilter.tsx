@@ -16,6 +16,7 @@ const CategoryFilter = ({ onValueChange }: CategoryFilterProps) => {
   const { data: categories, isError, isLoading } = useCategories();
 
   if (isLoading || isError) return null;
+  if (categories?.length === 0) return null;
 
   return (
     <Select onValueChange={onValueChange}>
