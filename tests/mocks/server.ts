@@ -18,6 +18,11 @@ export const simulateApiDelay = (
     }),
   );
 
+export const simulateApiEmptyResponse = (
+  endpoint: string,
+  method: HttpRequestHandler,
+) => server.use(method(endpoint, () => HttpResponse.json([])));
+
 const handlers = [
   ...db.category.toHandlers("rest"),
   ...db.product.toHandlers("rest"),
