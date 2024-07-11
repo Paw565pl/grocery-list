@@ -19,8 +19,8 @@ const NavLinks = () => {
             href={link.href}
             className={
               link.href === pathname
-                ? "text-zinc-800"
-                : "text-zinc-700 hover:text-blue-500"
+                ? "text-zinc-800 dark:text-zinc-200"
+                : "text-zinc-500 hover:text-blue-500 dark:text-zinc-400 dark:hover:text-blue-500"
             }
           >
             {link.label}
