@@ -69,7 +69,7 @@ const ComplaintForm = () => {
               <FormControl>
                 <Input {...field} autoFocus />
               </FormControl>
-              <FormMessage />
+              <FormMessage role="alert" />
             </FormItem>
           )}
         />
@@ -94,7 +94,7 @@ const ComplaintForm = () => {
                   }}
                 />
               </FormControl>
-              <FormMessage />
+              <FormMessage role="alert" />
             </FormItem>
           )}
         />
