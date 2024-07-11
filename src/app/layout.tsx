@@ -1,5 +1,6 @@
 import NavBar from "@/components/navbar";
 import Providers from "@/components/providers";
+import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 import "./globals.css";
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
         <Providers>
           <NavBar />
           <main className="space-y-4 p-5 md:px-10 lg:px-12">{children}</main>
+          <Toaster />
         </Providers>
       </body>
     </html>
