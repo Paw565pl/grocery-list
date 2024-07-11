@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ms from "ms";
 import { SessionProvider } from "next-auth/react";
+import { ThemeProvider } from "next-themes";
 import { ReactNode, useState } from "react";
 import { Provider as ReduxProvider } from "react-redux";
 
@@ -30,7 +31,14 @@ const Providers = ({ children }: ProvidersProps) => {
     <SessionProvider>
       <ReduxProvider store={store}>
         <QueryClientProvider client={queryClient}>
-          {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
           <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </ReduxProvider>

@@ -4,6 +4,7 @@ import { IoHome } from "react-icons/io5";
 import AuthPanel from "./AuthPanel";
 import NavLinks from "./NavLinks";
 import ProductsCountBadge from "./ProductsCountBadge";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const NavBar = () => {
   return (
@@ -20,6 +21,7 @@ const NavBar = () => {
           <ProductsCountBadge />
         </div>
         <AuthPanel />
+        <ThemeSwitcher />
       </div>
     </nav>
   );
