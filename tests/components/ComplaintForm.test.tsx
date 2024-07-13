@@ -4,9 +4,7 @@ import { ComplaintData } from "@/schemas/complaintSchema";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-type TestComplaintData = {
-  [K in keyof ComplaintData]: any;
-};
+type TestComplaintData = Partial<ComplaintData>;
 
 describe("ComplaintForm", () => {
   const renderComponent = () => {
@@ -32,10 +30,7 @@ describe("ComplaintForm", () => {
       description: "x".repeat(100),
     };
 
-    const fillForm = async (
-      complaint: TestComplaintData,
-      submit: boolean = true,
-    ) => {
+    const fillForm = async (complaint: TestComplaintData, submit = true) => {
       if (complaint.title) await user.type(titleField, complaint.title);
       if (complaint.description)
         await user.type(descriptionField, complaint.description);
@@ -79,7 +74,7 @@ describe("ComplaintForm", () => {
   it.each([
     {
       scenario: "too short",
-      title: null,
+      title: undefined,
       errorMessage: /2/,
     },
     {
@@ -110,7 +105,7 @@ describe("ComplaintForm", () => {
   it.each([
     {
       scenario: "too short",
-      description: null,
+      description: undefined,
       errorMessage: /10/,
     },
     {
