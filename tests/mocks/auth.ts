@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { auth } from "@/auth";
 import { Session } from "next-auth";
 import { SessionContextValue, useSession } from "next-auth/react";
