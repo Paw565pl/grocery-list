@@ -36,6 +36,7 @@ const ComplaintForm = () => {
       (
         complaintSchema.shape.description._def.checks.find(
           ({ kind }) => kind === "max",
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ) as any
       ).value,
     [],
@@ -46,7 +47,7 @@ const ComplaintForm = () => {
     form.reset();
   };
 
-  const onSubmit = (_: ComplaintData) => {
+  const onSubmit = () => {
     toast({
       title: "Thank you for your feedback!",
       description: "Your complaint has been issued successfully.",
