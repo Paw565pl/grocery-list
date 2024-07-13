@@ -22,6 +22,7 @@ describe("ComplaintForm", () => {
     const descriptionField = screen.getByRole("textbox", {
       name: /description/i,
     });
+    const descriptionFieldCharsIndicator = screen.getByRole("paragraph");
 
     const resetButton = screen.getByRole("button", { name: /reset/i });
     const submitButton = screen.getByRole("button", { name: /submit/i });
@@ -31,31 +32,37 @@ describe("ComplaintForm", () => {
       description: "x".repeat(100),
     };
 
-    const submitForm = async (complaint: TestComplaintData) => {
+    const fillForm = async (
+      complaint: TestComplaintData,
+      submit: boolean = true,
+    ) => {
       if (complaint.title) await user.type(titleField, complaint.title);
       if (complaint.description)
         await user.type(descriptionField, complaint.description);
 
-      await user.click(submitButton);
+      if (submit) await user.click(submitButton);
     };
 
     return {
       user,
-      submitForm,
+      fillForm,
       validData,
       inputs: { titleField, descriptionField },
       buttons: { resetButton, submitButton },
+      descriptionFieldCharsIndicator,
     };
   };
 
-  it("should render form fields", () => {
+  it("should render form elements", () => {
     const {
       inputs: { titleField, descriptionField },
       buttons: { resetButton, submitButton },
+      descriptionFieldCharsIndicator,
     } = renderComponent();
 
     expect(titleField).toBeInTheDocument();
     expect(descriptionField).toBeInTheDocument();
+    expect(descriptionFieldCharsIndicator).toHaveTextContent(/0 \/ 1000/);
 
     expect(resetButton).toBeInTheDocument();
     expect(submitButton).toBeInTheDocument();
@@ -88,9 +95,9 @@ describe("ComplaintForm", () => {
   ])(
     "should display an error if title is $scenario",
     async ({ title, errorMessage }) => {
-      const { submitForm, validData } = renderComponent();
+      const { fillForm, validData } = renderComponent();
 
-      await submitForm({
+      await fillForm({
         ...validData,
         title,
       });
@@ -119,9 +126,9 @@ describe("ComplaintForm", () => {
   ])(
     "should display an error if description is $scenario",
     async ({ description, errorMessage }) => {
-      const { submitForm, validData } = renderComponent();
+      const { fillForm, validData } = renderComponent();
 
-      await submitForm({
+      await fillForm({
         ...validData,
         description,
       });
@@ -135,18 +142,56 @@ describe("ComplaintForm", () => {
     const {
       user,
       inputs: { descriptionField },
+      descriptionFieldCharsIndicator,
     } = renderComponent();
 
     await user.type(descriptionField, "x".repeat(50));
 
-    const charsIndicator = screen.getByText("50 / 1000");
-    expect(charsIndicator).toBeInTheDocument();
+    expect(descriptionFieldCharsIndicator).toHaveTextContent(/50 \/ 1000/);
   });
 
-  it("should render toast if form is submitted successfully", async () => {
-    const { submitForm, validData } = renderComponent();
+  it('should reset form when "reset" button is clicked', async () => {
+    const {
+      user,
+      fillForm,
+      validData,
+      inputs,
+      buttons: { resetButton },
+      descriptionFieldCharsIndicator,
+    } = renderComponent();
 
-    await submitForm(validData);
+    await fillForm(validData, false);
+    await user.click(resetButton);
+
+    Object.values(inputs).forEach((input) => {
+      expect(input).toHaveValue("");
+    });
+    expect(descriptionFieldCharsIndicator).toHaveTextContent(/0 \/ 1000/);
+  });
+
+  it("should reset form when form is submitted", async () => {
+    const {
+      user,
+      fillForm,
+      validData,
+      inputs,
+      buttons: { submitButton },
+      descriptionFieldCharsIndicator,
+    } = renderComponent();
+
+    await fillForm(validData);
+    await user.click(submitButton);
+
+    Object.values(inputs).forEach((input) => {
+      expect(input).toHaveValue("");
+    });
+    expect(descriptionFieldCharsIndicator).toHaveTextContent(/0 \/ 1000/);
+  });
+
+  it("should render toast if form is submitted", async () => {
+    const { fillForm, validData } = renderComponent();
+
+    await fillForm(validData);
 
     const toast = screen.getByText(/success/i);
     expect(toast).toBeInTheDocument();
