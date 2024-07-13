@@ -11,7 +11,7 @@ afterEach(() => {
 afterAll(() => server.close());
 
 vi.mock("react", async () => {
-  const testCache = <T extends (...args: Array<unknown>) => unknown>(func: T) =>
+  const testCache = <T extends (...args: unknown[]) => unknown>(func: T) =>
     func;
   const originalModule = await vi.importActual("react");
   return {
