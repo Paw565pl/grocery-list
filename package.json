@@ -9,7 +9,8 @@
     "lint": "next lint",
     "format": "pnpm exec prettier . --write",
     "server": "json-server --watch src/data/db.json --delay 500 -p 5000",
-    "test": "vitest"
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
