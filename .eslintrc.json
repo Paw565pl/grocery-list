@@ -1,9 +1,14 @@
 {
   "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/strict",
     "next/core-web-vitals",
-    "prettier",
+    "plugin:react-hooks/recommended",
     "plugin:@tanstack/eslint-plugin-query/recommended",
-    "plugin:vitest/legacy-recommended"
+    "plugin:vitest/legacy-recommended",
+    "prettier"
   ],
-  "plugins": ["testing-library", "jest-dom"]
+  "plugins": ["@typescript-eslint", "testing-library", "jest-dom"],
+  "parser": "@typescript-eslint/parser",
+  "root": true
 }
