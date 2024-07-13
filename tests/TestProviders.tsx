@@ -1,5 +1,8 @@
+import store from "@/store";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { SessionProvider } from "next-auth/react";
 import { PropsWithChildren } from "react";
+import { Provider as ReduxProvider } from "react-redux";
 
 const TestProviders = ({ children }: PropsWithChildren) => {
   const queryClient = new QueryClient({
@@ -11,7 +14,11 @@ const TestProviders = ({ children }: PropsWithChildren) => {
   });
 
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <SessionProvider>
+      <QueryClientProvider client={queryClient}>
+        <ReduxProvider store={store}>{children}</ReduxProvider>
+      </QueryClientProvider>
+    </SessionProvider>
   );
 };
 
