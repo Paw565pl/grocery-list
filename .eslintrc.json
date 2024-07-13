@@ -2,6 +2,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/strict",
+    "plugin:@typescript-eslint/stylistic",
     "next/core-web-vitals",
     "plugin:react-hooks/recommended",
     "plugin:@tanstack/eslint-plugin-query/recommended",
