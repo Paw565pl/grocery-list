@@ -1,5 +1,6 @@
 import { drop } from "@mswjs/data";
 import "@testing-library/jest-dom/vitest";
+import { PropsWithChildren } from "react";
 import db from "./mocks/db";
 import server from "./mocks/server";
 
@@ -38,8 +39,9 @@ vi.mock("next-auth/react", async () => {
     status: "unauthenticated",
     update: vi.fn(),
   });
+  const SessionProvider = ({ children }: PropsWithChildren) => children;
 
-  return { ...originalModule, useSession };
+  return { ...originalModule, useSession, SessionProvider };
 });
 
 window.HTMLElement.prototype.scrollIntoView = vi.fn();
