@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import QuantitySelector from "@/components/productsTable/QuantitySelector";
 import Product from "@/entities/product";
 import { render, screen } from "@testing-library/react";
@@ -6,13 +7,13 @@ import db from "../mocks/db";
 import TestProviders from "../TestProviders";
 
 describe("QuantitySelector", () => {
-  let product: Product | null;
+  let product: Product;
   beforeEach(() => {
     product = db.product.create();
   });
 
   const renderComponent = () => {
-    render(<QuantitySelector product={product!} />, { wrapper: TestProviders });
+    render(<QuantitySelector product={product} />, { wrapper: TestProviders });
 
     const getAddToListButton = () =>
       screen.queryByRole("button", { name: /add/i });
