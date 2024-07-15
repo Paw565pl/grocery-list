@@ -64,9 +64,7 @@ describe("ProductsTable", () => {
     expect(dataRows).toHaveLength(testData.length);
     dataRows.forEach((_, i) => {
       const name = screen.getByText(new RegExp(testData[i].name, "i"));
-      const price = screen.getByText(
-        new RegExp(testData[i].price.toString(), "i"),
-      );
+      const price = screen.getByText(testData[i].price.toString());
 
       expect(name).toBeInTheDocument();
       expect(price).toBeInTheDocument();
@@ -95,9 +93,7 @@ describe("ProductsTable", () => {
     expect(dataRows).toHaveLength(filteredProducts.length);
     dataRows.forEach((_, i) => {
       const name = screen.getByText(new RegExp(filteredProducts[i].name, "i"));
-      const price = screen.getByText(
-        new RegExp(filteredProducts[i].price.toString(), "i"),
-      );
+      const price = screen.getByText(filteredProducts[i].price.toString());
 
       expect(name).toBeInTheDocument();
       expect(price).toBeInTheDocument();
@@ -120,9 +116,7 @@ describe("ProductsTable", () => {
     expect(dataRows).toHaveLength(secondPageData.length);
     dataRows.forEach((_, i) => {
       const name = screen.getByText(new RegExp(secondPageData[i].name, "i"));
-      const price = screen.getByText(
-        new RegExp(secondPageData[i].price.toString(), "i"),
-      );
+      const price = screen.getByText(secondPageData[i].price.toString());
 
       expect(name).toBeInTheDocument();
       expect(price).toBeInTheDocument();
