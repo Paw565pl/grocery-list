@@ -115,7 +115,10 @@ const ProductsTable = () => {
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center">
+              <TableCell
+                colSpan={columns.length + 1}
+                className="h-24 text-center"
+              >
                 No products available.
               </TableCell>
             </TableRow>
