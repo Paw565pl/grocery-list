@@ -1,6 +1,7 @@
 "use client";
 
 import DataTablePagination from "@/components/common/DataTablePagination";
+import { Spinner } from "@/components/common/Spinner";
 import {
   Table,
   TableBody,
@@ -60,7 +61,7 @@ const ProductsTable = () => {
     getPaginationRowModel: getPaginationRowModel(),
   });
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Spinner size={48} />;
   if (isError)
     return (
       <p className="text-red-600">
