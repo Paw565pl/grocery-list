@@ -46,7 +46,7 @@ describe("QuantitySelector", () => {
     expect(getQuantity()).not.toBeInTheDocument();
   });
 
-  it("should add product to the list and render decrement and increment buttons if add to list button is clicked", async () => {
+  it("should render decrement and increment buttons if add to list button is clicked", async () => {
     const {
       user,
       getAddToListButton,
@@ -54,7 +54,6 @@ describe("QuantitySelector", () => {
       getIncrementButton,
       getQuantity,
     } = renderComponent();
-
     const addToListButton = getAddToListButton()!;
 
     await user.click(addToListButton);
@@ -91,7 +90,7 @@ describe("QuantitySelector", () => {
     expect(getQuantity()).toHaveTextContent("1");
   });
 
-  it("should render add to list button if product is removed from the list", async () => {
+  it("should render add to list button if quantity is decremented to 0", async () => {
     const {
       user,
       getAddToListButton,
