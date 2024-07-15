@@ -1,4 +1,5 @@
 import CategoryFilter from "@/components/productsTable/CategoryFilter";
+import Category from "@/entities/category";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { http } from "msw";
@@ -20,11 +21,15 @@ describe("CategoryFilter", () => {
     return { view, onValueChange, user: userEvent.setup() };
   };
 
-  const testDataAmount = 3;
+  let testData: Category[] = [];
   beforeEach(() => {
-    Array(testDataAmount)
-      .fill(null)
-      .forEach(() => db.category.create());
+    for (let i = 0; i < 2; i++) {
+      testData.push(db.category.create());
+    }
+  });
+
+  afterEach(() => {
+    testData = [];
   });
 
   it("should render nothing if fetching data", async () => {
@@ -59,6 +64,22 @@ describe("CategoryFilter", () => {
   });
 
   it("should render list of categories", async () => {
+    const { user } = renderComponent();
+
+    const select = await screen.findByRole("combobox");
+    await user.click(select);
+
+    const options = screen.getAllByRole("option");
+    const categoriesOptions = options.slice(1);
+
+    expect(categoriesOptions).toHaveLength(testData.length);
+    categoriesOptions.forEach((_, i) => {
+      const option = screen.getByText(new RegExp(testData[i].name, "i"));
+      expect(option).toBeInTheDocument();
+    });
+  });
+
+  it("should call onValueChange if option is selected", async () => {
     const { user, onValueChange } = renderComponent();
 
     const select = await screen.findByRole("combobox");
@@ -66,9 +87,11 @@ describe("CategoryFilter", () => {
 
     const options = screen.getAllByRole("option");
     const categoriesOptions = options.slice(1);
-    expect(categoriesOptions.length).toBe(testDataAmount);
 
-    await user.click(categoriesOptions[0]);
+    const option = categoriesOptions[0];
+    await user.click(option);
+
+    expect(select).toHaveTextContent(option.textContent || "");
     expect(onValueChange).toHaveBeenCalledOnce();
   });
 });
