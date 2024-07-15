@@ -8,7 +8,7 @@ const NavLinks = () => {
   const links = [
     { label: "Products", href: "/products" },
     { label: "Complaint", href: "/complaint" },
-    { label: "Admin", href: "/admin" },
+    { label: "About Me", href: "/about-me" },
   ];
 
   return (
