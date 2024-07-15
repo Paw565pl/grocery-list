@@ -13,11 +13,11 @@ import TestProviders from "../TestProviders";
 describe("CategoryFilter", () => {
   const renderComponent = () => {
     const onValueChange = vi.fn();
-    const component = render(<CategoryFilter onValueChange={onValueChange} />, {
+    const view = render(<CategoryFilter onValueChange={onValueChange} />, {
       wrapper: TestProviders,
     });
 
-    return { component, onValueChange, user: userEvent.setup() };
+    return { view, onValueChange, user: userEvent.setup() };
   };
 
   const testDataAmount = 3;
@@ -30,7 +30,7 @@ describe("CategoryFilter", () => {
   it("should render nothing if fetching data", async () => {
     simulateApiDelay("/categories", http.get);
     const {
-      component: { container },
+      view: { container },
     } = renderComponent();
 
     expect(container).toBeEmptyDOMElement();
@@ -39,7 +39,7 @@ describe("CategoryFilter", () => {
   it("should render nothing if data fetching failed", async () => {
     simulateApiError("/categories", http.get);
     const {
-      component: { container },
+      view: { container },
     } = renderComponent();
 
     await waitFor(() => {
@@ -50,7 +50,7 @@ describe("CategoryFilter", () => {
   it("should render nothing if there are no categories", async () => {
     simulateApiEmptyResponse("/categories", http.get);
     const {
-      component: { container },
+      view: { container },
     } = renderComponent();
 
     await waitFor(() => {
