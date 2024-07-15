@@ -68,7 +68,7 @@ const ComplaintForm = () => {
             <FormItem>
               <FormLabel>Title</FormLabel>
               <FormControl>
-                <Input {...field} autoFocus />
+                <Input {...field} />
               </FormControl>
               <FormMessage role="alert" />
             </FormItem>

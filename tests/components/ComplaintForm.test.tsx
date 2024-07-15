@@ -63,14 +63,6 @@ describe("ComplaintForm", () => {
     expect(submitButton).toBeInTheDocument();
   });
 
-  it("should initialy focus on title field", () => {
-    const {
-      inputs: { titleField },
-    } = renderComponent();
-
-    expect(titleField).toHaveFocus();
-  });
-
   it.each([
     {
       scenario: "too short",
